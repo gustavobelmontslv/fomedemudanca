@@ -229,17 +229,17 @@ export function Dishes() {
   const total = DISHES.length;
   const go = (d: number) => setIdx((i) => (i + d + total) % total);
   // render a rotated list so the loop is seamless in both directions
-  const ordered = DISHES.map((_, k) => DISHES[(idx + k) % total]).slice(0, visible);
+  const ordered = DISHES.map((_, k) => DISHES[(idx + k) % total] ?? 0).slice(0, visible);
 
   return (
     <Section bg="cream">
       <Title>Pratos que você vai <Hl>aprender a fazer</Hl></Title>
       <div
         className="relative mt-10 px-6 md:px-8"
-        onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
+        onTouchStart={(e) => (touch.current = e.touches[0]?.clientX ?? null)}
         onTouchEnd={(e) => {
           if (touch.current == null) return;
-          const dx = e.changedTouches[0].clientX - touch.current;
+          const dx = (e.changedTouches[0]?.clientX ?? touch.current) - touch.current;
           if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
           touch.current = null;
         }}
