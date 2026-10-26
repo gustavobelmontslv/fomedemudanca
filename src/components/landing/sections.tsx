@@ -30,7 +30,7 @@ function IconCircle({ name }: { name: keyof typeof icons }) {
 export function TopBar() {
   const d = useToday();
   return (
-    <div className="sticky top-0 z-50 bg-peach px-4 py-2.5 text-center text-sm font-bold text-primary">
+    <div className="sticky top-0 z-50 bg-notice px-4 py-2.5 text-center text-sm font-bold text-notice-foreground">
       Essa oferta acaba hoje! {d}
     </div>
   );
@@ -44,11 +44,10 @@ export function Hero() {
     "right-[2%] bottom-[8%] [animation-duration:5s]",
   ];
   return (
-    <Section bg="white">
+    <Section bg="white" className="hero-section">
       <div className="text-center">
-        <Pill>{C.hero.badge}</Pill>
-        <h1 className="mt-5 text-4xl leading-tight font-bold text-primary md:text-6xl">
-          Fome de <Hl>Mudança</Hl>
+        <h1 className="mx-auto max-w-[880px] text-3xl leading-tight font-bold text-primary md:text-5xl">
+          {C.hero.title}
         </h1>
         <p className="mx-auto mt-4 max-w-[640px] text-base text-muted-foreground md:text-lg">{C.hero.subtitle}</p>
         <div className="relative mx-auto mt-8 w-[90%] md:w-[60%]">
@@ -75,6 +74,7 @@ export function Inside() {
       <div className="container-lp"><Title>Veja <Hl>por dentro</Hl> do material</Title></div>
       <div className="mt-10">
         <Marquee
+          continuous
           items={pages.map((src, i) => (
             <img key={src} src={src} alt={`Página de receita ${i + 1} do ebook`} loading="lazy" width={1056} height={1489}
               className="aspect-[1056/1489] h-[380px] w-auto rounded-2xl border border-border object-cover md:h-[460px]" />
