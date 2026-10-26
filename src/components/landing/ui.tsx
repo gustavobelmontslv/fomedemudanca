@@ -90,13 +90,15 @@ export function Placeholder({ className = "", label }: { className?: string; lab
   return <div role="img" aria-label={label ?? "Imagem em breve"} className={`bg-placeholder ${className}`} />;
 }
 
-/** Infinite auto-scrolling strip (moves left, pauses on hover). */
-export function Marquee({ items }: { items: ReactNode[] }) {
+/** Duplicated groups keep the leftward loop seamless at its boundary. */
+export function Marquee({ items, continuous = false }: { items: ReactNode[]; continuous?: boolean }) {
   return (
     <div className="relative overflow-hidden">
-      <div className="animate-marquee flex w-max gap-4">
-        {[...items, ...items].map((it, i) => (
-          <div key={i} className="shrink-0" aria-hidden={i >= items.length}>{it}</div>
+      <div className={`${continuous ? "animate-marquee-continuous" : "animate-marquee"} flex w-max`}>
+        {[0, 1].map((group) => (
+          <div key={group} className="flex shrink-0 gap-4 pr-4" aria-hidden={group === 1}>
+            {items.map((it, i) => <div key={i} className="shrink-0">{it}</div>)}
+          </div>
         ))}
       </div>
       <div className="fade-edge-l pointer-events-none absolute inset-y-0 left-0 w-12" />

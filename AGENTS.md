@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep landing-page copy in src/content/landing.ts and shared color roles in src/styles.css so presentation remains consistent.
+- Infinite marquees use two equal-width groups including trailing spacing to avoid jumps at the loop boundary; the continuous variant never pauses on hover and respects reduced-motion preferences.

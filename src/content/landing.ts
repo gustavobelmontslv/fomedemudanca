@@ -1,9 +1,8 @@
 export const CHECKOUT_URL = "https://pay.wiapy.com/aDzlIjNqwJNF";
 
 export const hero = {
-  badge: "Ebook + 3 bônus",
-  title: "Fome de Mudança",
-  subtitle: "Receitas fitness e low carb simples para você comer bem e manter o foco no seu resultado.",
+  title: "Pare de repetir o mesmo prato e coma bem todos os dias, sem complicação",
+  subtitle: "Bestseller de 2025 agora disponível em ebook com bônus inclusos e ilustrações que facilitam o consumo do conteúdo",
   bubbles: ["Receitas práticas", "Ingredientes do dia a dia", "Opções low carb", "Marmitas para a semana"],
   checks: ["Entrega imediata no seu e-mail", "Acesso vitalício", "Para ler no celular ou imprimir"],
   cta: "Quero meu ebook agora",
