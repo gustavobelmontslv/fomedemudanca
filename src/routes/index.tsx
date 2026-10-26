@@ -1,24 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Audience, Benefits, Bonuses, Dishes, Faq, FinalCta, Footer, Guarantee, Hero, Inside, Offer, Pain, Product, Reviews, Steps, TopBar, Urgency, Video,
+} from "@/components/landing/sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Fome de Mudança | Receitas fitness e low carb" },
+      { name: "description", content: "Ebook com receitas fitness e low carb simples + 3 bônus. Coma bem sem complicação." },
+      { property: "og:title", content: "Fome de Mudança | Receitas fitness e low carb" },
+      { property: "og:description", content: "Ebook com receitas fitness e low carb simples + 3 bônus." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <TopBar />
+      <Hero />
+      <Inside />
+      <Benefits />
+      <Video />
+      <Pain />
+      <Urgency />
+      <Audience />
+      <Product />
+      <Bonuses />
+      <Dishes />
+      <Reviews />
+      <Offer />
+      <Guarantee />
+      <Steps />
+      <Faq />
+      <FinalCta />
+      <Footer />
+    </main>
   );
 }
