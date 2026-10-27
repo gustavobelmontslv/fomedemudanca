@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, Check } from "lucide-react";
-import { CHECKOUT_URL } from "@/content/landing";
+import { ctaDestination } from "@/content/landing";
 
 export function todayBR() {
   return new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
@@ -60,10 +60,10 @@ export function Pill({ children, tone = "pastel" }: { children: ReactNode; tone?
   );
 }
 
-export function Cta({ children, inverted = false }: { children: ReactNode; inverted?: boolean }) {
+export function Cta({ children, inverted = false, checkout = false }: { children: ReactNode; inverted?: boolean; checkout?: boolean }) {
   return (
     <a
-      href={CHECKOUT_URL}
+      href={ctaDestination(checkout)}
       className={`inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-full px-8 text-center text-sm font-bold tracking-wide uppercase transition-transform duration-200 hover:-translate-y-0.5 shadow-soft sm:w-auto md:text-base ${
         inverted ? "bg-background text-primary" : "bg-primary text-primary-foreground"
       }`}

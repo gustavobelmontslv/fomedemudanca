@@ -1,4 +1,8 @@
 export const CHECKOUT_URL = "https://pay.wiapy.com/aDzlIjNqwJNF";
+export const OFFER_CARD_ID = "oferta";
+export function ctaDestination(checkout = false) {
+  return checkout ? CHECKOUT_URL : `#${OFFER_CARD_ID}`;
+}
 
 export const hero = {
   title: "Pare de repetir o mesmo prato e coma bem todos os dias, sem complicação",

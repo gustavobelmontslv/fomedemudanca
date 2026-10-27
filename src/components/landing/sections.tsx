@@ -3,9 +3,10 @@ import {
   Book, Box, CalendarDays, ChefHat, ChevronLeft, ChevronRight, Leaf, Minus, Play, Plus, Repeat, Salad, Utensils,
 } from "lucide-react";
 import mega from "@/assets/mega.asset.json";
-import bonus1 from "@/assets/bonus1.asset.json";
-import bonus2 from "@/assets/bonus2.asset.json";
-import bonus3 from "@/assets/bonus3.asset.json";
+import bonus1 from "@/assets/bonus-marmitas.asset.json";
+import bonus2 from "@/assets/bonus-cafes.asset.json";
+import bonus3 from "@/assets/bonus-low-carb.asset.json";
+import guaranteeSeal from "@/assets/garantia-7-dias.asset.json";
 import page1 from "@/assets/page1.asset.json";
 import page2 from "@/assets/page2.asset.json";
 import page3 from "@/assets/page3.asset.json";
@@ -189,8 +190,8 @@ export function Bonuses() {
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {C.bonuses.map((b, i) => (
           <div key={b.n} className="overflow-hidden rounded-[20px] border border-border bg-card shadow-soft">
-            <div className="bg-mint p-4">
-              <img src={bonusImgs[i]} alt={`Mockup do bônus ${b.title}`} loading="lazy" width={1280} height={960} className="mx-auto aspect-[4/3] w-full rounded-xl object-cover" />
+            <div>
+              <img src={bonusImgs[i]} alt={`Foto do bônus ${b.title}`} loading="lazy" width={678} height={452} className="block aspect-[3/2] w-full object-cover" />
             </div>
             <div className="p-6">
               <Pill tone="peach">Bônus {b.n}</Pill>
@@ -292,7 +293,7 @@ export function Offer() {
     <Section bg="mint">
       <Title>Oferta válida <Hl>somente hoje</Hl></Title>
       <p className="mt-2 text-center font-bold text-primary">{d}</p>
-      <div className="mx-auto mt-8 max-w-[440px] overflow-hidden rounded-[20px] border-2 border-primary bg-card shadow-soft">
+      <div id={C.OFFER_CARD_ID} className="mx-auto mt-8 max-w-[440px] scroll-mt-16 overflow-hidden rounded-[20px] border-2 border-primary bg-card shadow-soft">
         <div className="bg-pastel py-3 text-center text-sm font-bold text-primary uppercase">Pacote único, tudo incluso</div>
         <div className="p-6 text-center">
           <img src={mega.url} alt="Pacote Fome de Mudança com bônus" loading="lazy" width={1920} height={1920} className="mx-auto aspect-square w-44" />
@@ -301,7 +302,7 @@ export function Offer() {
           <p className="text-6xl leading-none font-bold text-primary md:text-7xl">R$ 14,90</p>
           <p className="mt-2 text-sm text-muted-foreground">pagamento único</p>
           <p className="mt-3 font-bold text-primary">Você economiza R$ 30,00</p>
-          <div className="mt-6 [&>a]:w-full"><Cta>Quero aproveitar</Cta></div>
+          <div className="mt-6 [&>a]:w-full"><Cta checkout>Quero aproveitar</Cta></div>
           <p className="mt-3 text-xs text-muted-foreground">Compra segura e garantia de 7 dias</p>
         </div>
       </div>
@@ -311,14 +312,7 @@ export function Offer() {
 
 function Seal() {
   return (
-    <svg viewBox="0 0 200 200" className="mx-auto h-auto w-40 md:w-full" role="img" aria-label="Selo 7 dias de garantia">
-      <circle cx="100" cy="100" r="96" fill="var(--primary)" />
-      <circle cx="100" cy="100" r="82" fill="none" stroke="var(--peach)" strokeWidth="3" strokeDasharray="4 6" />
-      <circle cx="100" cy="100" r="70" fill="none" stroke="var(--peach)" strokeWidth="1.5" />
-      <text x="100" y="112" textAnchor="middle" fontSize="64" fontWeight="700" fill="var(--peach)" fontFamily="Poppins">7</text>
-      <text x="100" y="136" textAnchor="middle" fontSize="16" fontWeight="700" fill="var(--primary-foreground)" fontFamily="Poppins">DIAS</text>
-      <text x="100" y="62" textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--primary-foreground)" fontFamily="Poppins" letterSpacing="2">GARANTIA</text>
-    </svg>
+    <img src={guaranteeSeal.url} alt="Selo 7 dias de garantia" width={554} height={554} loading="lazy" className="mx-auto aspect-square w-40 object-contain md:w-full" />
   );
 }
 
