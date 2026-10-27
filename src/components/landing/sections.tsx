@@ -278,9 +278,9 @@ export function Dishes() {
         ))}
       </div>
       <div className="mt-6 flex justify-center gap-2">
-        {DISHES.map((d) => (
-          <button key={d} aria-label={`Ir para o prato ${d + 1}`} onClick={() => setIdx(d)}
-            className={`h-2.5 rounded-full transition-all ${d === idx ? "w-6 bg-primary" : "w-2.5 bg-pastel"}`} />
+        {DISHES.map((d, i) => (
+          <button key={d} aria-label={`Ir para o prato ${i + 1}`} onClick={() => setIdx(i)}
+            className={`h-2.5 rounded-full transition-all ${i === idx ? "w-6 bg-primary" : "w-2.5 bg-pastel"}`} />
         ))}
       </div>
     </Section>
