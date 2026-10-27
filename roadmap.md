@@ -4,3 +4,6 @@
 - [x] Tornar o carrossel interno contínuo para a esquerda a 0.8x.
 - [x] Remover vídeo e bloco sobre dieta complicada.
 - [x] Verificar página e movimento do carrossel.
+- [ ] Substituir as fotos dos bônus e o selo de garantia enviados.
+- [ ] Uniformizar fotos sem bordas e direcionar CTAs para a oferta, exceto o CTA da oferta.
+- [ ] Verificar imagens, navegação e carrossel contínuo a 0.8x.
