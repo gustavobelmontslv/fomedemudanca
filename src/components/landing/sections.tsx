@@ -12,6 +12,13 @@ import page2 from "@/assets/page2.asset.json";
 import page3 from "@/assets/page3.asset.json";
 import page4 from "@/assets/page4.asset.json";
 import page5 from "@/assets/page5.asset.json";
+import dish1 from "@/assets/dish1.asset.json";
+import dish2 from "@/assets/dish2.asset.json";
+import dish3 from "@/assets/dish3.asset.json";
+import dish4 from "@/assets/dish4.asset.json";
+import dish5 from "@/assets/dish5.asset.json";
+import dish6 from "@/assets/dish6.asset.json";
+import dish7 from "@/assets/dish7.asset.json";
 import * as C from "@/content/landing";
 import { CheckItem, Cta, Hl, Marquee, Pill, Placeholder, Section, Title, useToday } from "./ui";
 
