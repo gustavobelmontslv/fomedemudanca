@@ -228,7 +228,16 @@ function useVisibleCount() {
   return n;
 }
 
-const DISHES = Array.from({ length: 8 }, (_, i) => i);
+const DISHES = [dish1, dish2, dish3, dish4, dish5, dish6, dish7].map((d) => d.url);
+const DISH_ALTS = [
+  "Torradas com pasta de abacate",
+  "Pão de farinha de arroz fofinho",
+  "Bolo de cenoura de frigideira",
+  "Lasanha low carb",
+  "Biscoitinho saudável de cacau",
+  "Prato low carb colorido",
+  "Pizza de quinoa sem glúten",
+];
 
 export function Dishes() {
   const visible = useVisibleCount();
@@ -237,7 +246,7 @@ export function Dishes() {
   const total = DISHES.length;
   const go = (d: number) => setIdx((i) => (i + d + total) % total);
   // render a rotated list so the loop is seamless in both directions
-  const ordered = DISHES.map((_, k) => DISHES[(idx + k) % total] ?? 0).slice(0, visible);
+  const ordered = DISHES.map((_, k) => (idx + k) % total).slice(0, visible);
 
   return (
     <Section bg="cream">
