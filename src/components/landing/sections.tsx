@@ -12,6 +12,13 @@ import page2 from "@/assets/page2.asset.json";
 import page3 from "@/assets/page3.asset.json";
 import page4 from "@/assets/page4.asset.json";
 import page5 from "@/assets/page5.asset.json";
+import dish1 from "@/assets/dish1.asset.json";
+import dish2 from "@/assets/dish2.asset.json";
+import dish3 from "@/assets/dish3.asset.json";
+import dish4 from "@/assets/dish4.asset.json";
+import dish5 from "@/assets/dish5.asset.json";
+import dish6 from "@/assets/dish6.asset.json";
+import dish7 from "@/assets/dish7.asset.json";
 import * as C from "@/content/landing";
 import { CheckItem, Cta, Hl, Marquee, Pill, Placeholder, Section, Title, useToday } from "./ui";
 
@@ -221,7 +228,16 @@ function useVisibleCount() {
   return n;
 }
 
-const DISHES = Array.from({ length: 8 }, (_, i) => i);
+const DISHES = [dish1, dish2, dish3, dish4, dish5, dish6, dish7].map((d) => d.url);
+const DISH_ALTS = [
+  "Petisco de batata-doce com guacamole",
+  "Pão de farinha de arroz fofinho",
+  "Bolo de cenoura de frigideira com cobertura de chocolate",
+  "Lasanha low carb",
+  "Biscoitinho saudável de cacau",
+  "Prato low carb colorido",
+  "Pizza de quinoa sem glúten",
+];
 
 export function Dishes() {
   const visible = useVisibleCount();
@@ -230,7 +246,7 @@ export function Dishes() {
   const total = DISHES.length;
   const go = (d: number) => setIdx((i) => (i + d + total) % total);
   // render a rotated list so the loop is seamless in both directions
-  const ordered = DISHES.map((_, k) => DISHES[(idx + k) % total] ?? 0).slice(0, visible);
+  const ordered = DISHES.map((_, k) => (idx + k) % total).slice(0, visible);
 
   return (
     <Section bg="cream">
@@ -247,8 +263,8 @@ export function Dishes() {
       >
         <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${visible}, minmax(0, 1fr))` }}>
           {ordered.map((d) => (
-            // TROCAR PELA FOTO DO PRATO
-            <Placeholder key={d} label={`Foto do prato ${d + 1}`} className="aspect-square w-full rounded-[20px] animate-in fade-in duration-300" />
+            <img key={d} src={DISHES[d]} alt={DISH_ALTS[d]} loading="lazy"
+              className="aspect-square w-full rounded-[20px] object-cover animate-in fade-in duration-300" />
           ))}
         </div>
         {[
@@ -262,9 +278,9 @@ export function Dishes() {
         ))}
       </div>
       <div className="mt-6 flex justify-center gap-2">
-        {DISHES.map((d) => (
-          <button key={d} aria-label={`Ir para o prato ${d + 1}`} onClick={() => setIdx(d)}
-            className={`h-2.5 rounded-full transition-all ${d === idx ? "w-6 bg-primary" : "w-2.5 bg-pastel"}`} />
+        {DISHES.map((d, i) => (
+          <button key={d} aria-label={`Ir para o prato ${i + 1}`} onClick={() => setIdx(i)}
+            className={`h-2.5 rounded-full transition-all ${i === idx ? "w-6 bg-primary" : "w-2.5 bg-pastel"}`} />
         ))}
       </div>
     </Section>
