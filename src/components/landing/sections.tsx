@@ -263,8 +263,8 @@ export function Dishes() {
       >
         <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${visible}, minmax(0, 1fr))` }}>
           {ordered.map((d) => (
-            // TROCAR PELA FOTO DO PRATO
-            <Placeholder key={d} label={`Foto do prato ${d + 1}`} className="aspect-square w-full rounded-[20px] animate-in fade-in duration-300" />
+            <img key={d} src={DISHES[d]} alt={DISH_ALTS[d]} loading="lazy"
+              className="aspect-square w-full rounded-[20px] object-cover animate-in fade-in duration-300" />
           ))}
         </div>
         {[
