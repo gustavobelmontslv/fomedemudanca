@@ -104,5 +104,7 @@
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
-  .animate-float, .animate-marquee, .animate-marquee-continuous { animation: none; }
+  .animate-float, .animate-marquee { animation: none; }
+  /* Carrossel contínuo do material: o usuário pediu rolagem sem parar, mesmo com movimento reduzido. */
+  .animate-marquee-continuous { animation-duration: 62.5s; }
 }
