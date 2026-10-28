@@ -7,3 +7,4 @@
 - [x] Substituir as fotos dos bônus e o selo de garantia enviados.
 - [x] Uniformizar fotos sem bordas e direcionar CTAs para a oferta, exceto o CTA da oferta.
 - [x] Verificar imagens, navegação e carrossel contínuo a 0.8x.
+- [x] Trocar as fotos das posições 2 e 6 do carrossel de pratos pelas duas novas enviadas.
