@@ -231,11 +231,11 @@ function useVisibleCount() {
 const DISHES = [dish1, dish2, dish3, dish4, dish5, dish6, dish7].map((d) => d.url);
 const DISH_ALTS = [
   "Petisco de batata-doce com guacamole",
-  "Pão de farinha de arroz fofinho",
+  "Pão de farinha de amêndoas fatiado com amêndoas inteiras",
   "Bolo de cenoura de frigideira com cobertura de chocolate",
   "Lasanha low carb",
   "Biscoitinho saudável de cacau",
-  "Prato low carb colorido",
+  "Recheado de frango com queijo derretido e cheiro-verde",
   "Pizza de quinoa sem glúten",
 ];
 
