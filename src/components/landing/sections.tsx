@@ -19,8 +19,13 @@ import dish4 from "@/assets/dish4.asset.json";
 import dish5 from "@/assets/dish5.asset.json";
 import dish6 from "@/assets/dish6.asset.json";
 import dish7 from "@/assets/dish7.asset.json";
+import review1 from "@/assets/review1.png.asset.json";
+import review2 from "@/assets/review2.png.asset.json";
+import review3 from "@/assets/review3.png.asset.json";
+import review4 from "@/assets/review4.png.asset.json";
 import * as C from "@/content/landing";
-import { CheckItem, Cta, Hl, Marquee, Pill, Placeholder, Section, Title, useToday } from "./ui";
+import { CheckItem, Cta, Hl, Marquee, Pill, Section, Title, useToday } from "./ui";
+
 
 const icons = { calendar: CalendarDays, utensils: Utensils, chef: ChefHat, book: Book, leaf: Leaf, box: Box, salad: Salad, repeat: Repeat };
 const bonusImgs = [bonus1.url, bonus2.url, bonus3.url];
@@ -287,21 +292,32 @@ export function Dishes() {
   );
 }
 
+const reviews = [review1, review2, review3, review4].map((r) => r.url);
+const REVIEW_ALTS = [
+  "Avaliação no WhatsApp de Júlia Martins com foto do wrap que ela preparou",
+  "Avaliação no WhatsApp de Camila Ferreira com foto do bife acebolado com arroz e feijão",
+  "Avaliação no WhatsApp de Vanessa Lima com foto do frango com batata e brócolis",
+  "Avaliação no WhatsApp de Amanda Souza com foto do macarrão à bolonhesa",
+];
+
 export function Reviews() {
   return (
     <section className="section-y bg-background">
       <div className="container-lp"><Title>Quem já testou, <Hl>aprovou</Hl></Title></div>
       <div className="mt-10">
         <Marquee
-          items={Array.from({ length: 6 }, (_, i) => (
-            // TROCAR PELO PRINT DA AVALIAÇÃO REAL
-            <Placeholder key={i} label={`Avaliação ${i + 1}`} className="aspect-[3/4] h-[380px] rounded-2xl md:h-[460px]" />
+          continuous
+          direction="right"
+          items={reviews.map((src, i) => (
+            <img key={src} src={src} alt={REVIEW_ALTS[i]} loading="lazy" width={941} height={1671}
+              className="aspect-[941/1671] h-[380px] w-auto rounded-2xl object-cover md:h-[460px]" />
           ))}
         />
       </div>
     </section>
   );
 }
+
 
 export function Offer() {
   const d = useToday();
