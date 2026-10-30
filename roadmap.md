@@ -8,3 +8,4 @@
 - [x] Uniformizar fotos sem bordas e direcionar CTAs para a oferta, exceto o CTA da oferta.
 - [x] Verificar imagens, navegação e carrossel contínuo a 0.8x.
 - [x] Trocar as fotos das posições 2 e 6 do carrossel de pratos pelas duas novas enviadas.
+- [x] Colocar as 4 avaliações de WhatsApp em carrossel contínuo para a direita a 0.8x.
