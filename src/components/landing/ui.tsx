@@ -90,11 +90,25 @@ export function Placeholder({ className = "", label }: { className?: string; lab
   return <div role="img" aria-label={label ?? "Imagem em breve"} className={`bg-placeholder ${className}`} />;
 }
 
-/** Duplicated groups keep the leftward loop seamless at its boundary. */
-export function Marquee({ items, continuous = false }: { items: ReactNode[]; continuous?: boolean }) {
+/** Duplicated groups keep the loop seamless at its boundary. */
+export function Marquee({
+  items,
+  continuous = false,
+  direction = "left",
+}: {
+  items: ReactNode[];
+  continuous?: boolean;
+  direction?: "left" | "right";
+}) {
+  const anim = continuous
+    ? direction === "right"
+      ? "animate-marquee-continuous-right"
+      : "animate-marquee-continuous"
+    : "animate-marquee";
   return (
     <div className="relative overflow-hidden">
-      <div className={`${continuous ? "animate-marquee-continuous" : "animate-marquee"} flex w-max`}>
+      <div className={`${anim} flex w-max`}>
+
         {[0, 1].map((group) => (
           <div key={group} className="flex shrink-0 gap-4 pr-4" aria-hidden={group === 1}>
             {items.map((it, i) => <div key={i} className="shrink-0">{it}</div>)}
